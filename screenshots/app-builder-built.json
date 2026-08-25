@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "HJ4 Capital — Southeast Multifamily Investment",
+      "hasCanvas": false,
+      "bodyTextLen": 5406,
+      "bodyTextHash": "c6abef928a0c9968d27084e210d03ee4f8f5ac648ae7b59dc9e69fbc5c97d851",
+      "bodyTextPrefix": "Skip to content HJ4 CAPITAL Approach Markets About (347) 633-018",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "HJ4 Capital — Southeast Multifamily Investment",
+      "hasCanvas": false,
+      "bodyTextLen": 5406,
+      "bodyTextHash": "fa14b823fa23be2821c90945c7cc2f083c64cce4e4a63f893dfe7c9ab25b6997",
+      "bodyTextPrefix": "Skip to content HJ4 CAPITAL Approach Markets About Submit a deal",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}
