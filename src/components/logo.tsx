@@ -2,16 +2,14 @@ import { cn } from "@/lib/utils";
 
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 32 32"
+    <img
+      src="/images/logo-mark.png"
+      alt=""
+      width={256}
+      height={256}
       className={cn("size-8", className)}
       aria-hidden="true"
-    >
-      <rect x="1.25" y="1.25" width="13.5" height="13.5" fill="none" stroke="currentColor" strokeWidth="1.25" />
-      <rect x="17.25" y="1.25" width="13.5" height="13.5" fill="none" stroke="currentColor" strokeWidth="1.25" />
-      <rect x="1.25" y="17.25" width="13.5" height="13.5" fill="none" stroke="currentColor" strokeWidth="1.25" />
-      <rect x="17.25" y="17.25" width="13.5" height="7.25" fill="none" stroke="currentColor" strokeWidth="1.25" />
-    </svg>
+    />
   );
 }
 

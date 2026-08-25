@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ApproachRouteImport } from './routes/approach'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as MarketsRouteImport } from './routes/markets'
+import { Route as AdminSectionsRouteImport } from './routes/admin/sections'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const MarketsRoute = MarketsRouteImport.update({
   path: '/markets',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminSectionsRoute = AdminSectionsRouteImport.update({
+  id: '/admin/sections',
+  path: '/admin/sections',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
   '/markets': typeof MarketsRoute
+  '/admin/sections': typeof AdminSectionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
   '/markets': typeof MarketsRoute
+  '/admin/sections': typeof AdminSectionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +70,22 @@ export interface FileRoutesById {
   '/approach': typeof ApproachRoute
   '/contact': typeof ContactRoute
   '/markets': typeof MarketsRoute
+  '/admin/sections': typeof AdminSectionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/approach' | '/contact' | '/markets'
+  fullPaths:
+    '/' | '/about' | '/approach' | '/contact' | '/markets' | '/admin/sections'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/approach' | '/contact' | '/markets'
-  id: '__root__' | '/' | '/about' | '/approach' | '/contact' | '/markets'
+  to: '/' | '/about' | '/approach' | '/contact' | '/markets' | '/admin/sections'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/approach'
+    | '/contact'
+    | '/markets'
+    | '/admin/sections'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +94,7 @@ export interface RootRouteChildren {
   ApproachRoute: typeof ApproachRoute
   ContactRoute: typeof ContactRoute
   MarketsRoute: typeof MarketsRoute
+  AdminSectionsRoute: typeof AdminSectionsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +134,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarketsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/sections': {
+      id: '/admin/sections'
+      path: '/admin/sections'
+      fullPath: '/admin/sections'
+      preLoaderRoute: typeof AdminSectionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +150,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApproachRoute: ApproachRoute,
   ContactRoute: ContactRoute,
   MarketsRoute: MarketsRoute,
+  AdminSectionsRoute: AdminSectionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

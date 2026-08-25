@@ -30,7 +30,7 @@ function Hero() {
     <section className="relative isolate min-h-svh overflow-hidden bg-ink text-paper">
       <img
         src="/images/hero.jpg"
-        alt="Dusk view of a mid-rise multifamily community with a still pool and palms"
+        alt="Bright daytime skyline view of Miami with modern skyscrapers and waterfront"
         width={1792}
         height={1008}
         className="absolute inset-0 size-full object-cover outline outline-1 -outline-offset-1 outline-paper/10"
