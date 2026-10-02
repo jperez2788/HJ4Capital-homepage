@@ -7,3 +7,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Full-size team photo originals (the site uses smaller copies)
+static-site/images/team/originals/
