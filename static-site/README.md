@@ -11,6 +11,10 @@ Plain HTML, CSS and JavaScript. No build step: open `index.html` in a browser, o
 | `js/main.js` | Mobile menu, header scroll effect, FAQ accordion, markets explorer, scroll-in animations, deal form. Market metros are listed at the top of this file. |
 | `images/`, `fonts/` | Photos, logo and the Inter / Libre Baskerville font files. |
 
+## Official branding
+
+The header, footer, browser icon, and touch icon on every page use the supplied gold HJ4 Capital logo in `images/hj4-capital-gold-logo.png`. This single image includes the company name and “Real Estate · Investment · Wealth” tagline. Its proportions are preserved; header and footer sizes are set under “Official HJ4 Capital logo” in `css/styles.css`.
+
 ## Main menu
 
 The desktop menu (`<nav class="nav-tabs">` in each page's header) shows an icon above each label. A gold bar sits under the current page, the one whose link has `aria-current="page"`. Styles are under "Main menu" in `css/styles.css`. To add a page to the menu, copy one `<a class="nav-tab">` link in all six pages, and add the matching link to the phone menu (`<nav aria-label="Mobile">`).

@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 export function LogoMark({ className }: { className?: string }) {
   return (
     <img
-      src="/images/logo-mark.png"
+      src="/images/hj4-capital-gold-logo.png"
       alt=""
-      width={256}
-      height={256}
-      className={cn("size-8", className)}
+      width={1536}
+      height={1024}
+      className={cn("h-auto w-32 object-contain", className)}
       aria-hidden="true"
     />
   );
@@ -23,18 +23,18 @@ export function Logo({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2.5",
+        "inline-flex items-center",
         tone === "paper" ? "text-paper" : "text-ink",
         className,
       )}
     >
-      <LogoMark className="size-7" />
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.35rem] tracking-tight">HJ4</span>
-        <span className="mt-0.5 text-[0.62rem] font-medium tracking-[0.28em] uppercase">
-          Capital
-        </span>
-      </span>
+      <img
+        src="/images/hj4-capital-gold-logo.png"
+        alt="HJ4 Capital — Real Estate · Investment · Wealth"
+        width={1536}
+        height={1024}
+        className="block h-auto w-28 object-contain sm:w-32"
+      />
     </span>
   );
 }

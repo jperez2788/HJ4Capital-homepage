@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-ink text-paper">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
-          <Logo tone="paper" />
+          <Logo tone="paper" className="[&>img]:w-64" />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-stone">
             Real estate investment group. Multifamily and income-producing
             properties across Florida, Georgia, the Carolinas, Texas, and select

@@ -2520,23 +2520,36 @@ nav[aria-label="Mobile"] a .nav-icon {
   opacity: 0.6;
 }
 
-/* ---------- Wordmark next to the logo ---------- */
-/* Header uses images/wordmark-light.png (cream "CAPITAL" for the dark header);
-   the footer uses images/wordmark.png (navy "CAPITAL"). */
-.wordmark {
+/* ---------- Official HJ4 Capital logo ---------- */
+.brand-logo {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.brand-logo img {
   display: block;
-  height: 1.55rem;
-  width: auto;
+  width: 112px;
+  height: auto;
+  object-fit: contain;
+}
+
+.site-header-inner {
+  height: 96px;
+}
+
+footer .brand-logo img {
+  width: 256px;
+  max-width: 100%;
 }
 
 @media (min-width: 640px) {
-  .wordmark {
-    height: 1.75rem;
+  .brand-logo img {
+    width: 128px;
   }
-}
 
-.wordmark-footer {
-  height: 2rem;
+  .site-header-inner {
+    height: 112px;
+  }
 }
 
 

@@ -41,7 +41,7 @@ export function SiteHeader() {
           : "bg-ink/90 border-b border-hairline-dark backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:h-[4.25rem] sm:px-8">
+      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between gap-4 px-5 sm:h-28 sm:px-8">
         <Link to="/" aria-label={`${SITE.name} home`} className="shrink-0">
           <Logo tone="paper" />
         </Link>

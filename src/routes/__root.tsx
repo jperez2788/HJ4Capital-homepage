@@ -37,10 +37,10 @@ export const Route = createRootRoute({
       { name: "theme-color", content: "#0c0c0b" },
     ],
     links: [
-      { rel: "icon", type: "image/png", sizes: "512x512", href: "/favicon.png" },
+      { rel: "icon", type: "image/png", href: "/images/hj4-capital-gold-logo.png" },
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "apple-touch-icon", href: "/images/hj4-capital-gold-logo.png" },
     ],
   }),
   component: RootLayout,
