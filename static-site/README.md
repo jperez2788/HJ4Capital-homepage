@@ -55,11 +55,11 @@ The Team section is an expanding photo gallery. Hovering, tapping or tabbing to 
 | Person | File |
 | --- | --- |
 | Henrry Martinez | `images/team/henrry-martinez.jpg` |
-| Jeremy Perez | `images/team/jeremy-perez.jpg` |
+| Jeremy Perez | `images/team/jeremy-perez.png` |
 | Matthew Teifke | `images/team/matthew-teifke.webp` |
 | Stephan Shenk | `images/team/stephan-shenk.jpg` |
 
-Refresh the page and the photo replaces the initials. Stephan's photo is currently missing, so his image tag is commented out in `about.html`. After adding his photo, uncomment that tag. The filename must match exactly: lowercase, with dashes, no spaces. To use a different file type (`.png`, `.webp`…), change the `src` in that person's card in `about.html` to match. For the other existing image tags, no HTML changes are needed. Head-and-shoulders photos work best. To move a photo's crop, change `object-position` on its `<img>` (for example `center 25%`; lower numbers show more of the top). Names and roles are in the Team section of `about.html`, and the styles are under "Team (About page)" in `css/styles.css`.
+Refresh the page and the photo replaces the initials. Jeremy's portrait uses a transparent PNG. Matthew's and Stephan's photos are currently missing, so their image tags are commented out in `about.html`. After adding a replacement photo, uncomment that tag. The filename must match exactly: lowercase, with dashes, no spaces. To use a different file type (`.png`, `.webp`…), change the `src` in that person's card in `about.html` to match. For the other existing image tags, no HTML changes are needed. Head-and-shoulders photos work best. To move a photo's crop, change `object-position` on its `<img>` (for example `center 25%`; lower numbers show more of the top). Names and roles are in the Team section of `about.html`, and the styles are under "Team (About page)" in `css/styles.css`.
 
 ## Editing styles
 
