@@ -2520,23 +2520,24 @@ nav[aria-label="Mobile"] a .nav-icon {
   opacity: 0.6;
 }
 
-/* ---------- Wordmark next to the logo ---------- */
-/* Header uses images/wordmark-light.png (cream "CAPITAL" for the dark header);
-   the footer uses images/wordmark.png (navy "CAPITAL"). */
-.wordmark {
+/* ---------- Logo ---------- */
+/* Header uses images/logo-gold-light.png (black background removed, for the dark header);
+   the footer uses images/logo-gold.png (on black) as a rounded badge. */
+.site-logo {
   display: block;
-  height: 1.55rem;
+  height: 2.75rem;
   width: auto;
 }
 
 @media (min-width: 640px) {
-  .wordmark {
-    height: 1.75rem;
+  .site-logo {
+    height: 3.25rem;
   }
 }
 
-.wordmark-footer {
-  height: 2rem;
+.site-logo-footer {
+  height: 5.5rem;
+  border-radius: 0.5rem;
 }
 
 
