@@ -73,6 +73,8 @@ If you use a class that isn't on the site yet, nothing will happen, since there 
 .my-callout { padding: 2rem; background: var(--color-paper-2); }
 ```
 
+Each page links the stylesheet as `css/styles.css?v=2026-10-07`. After changing `styles.css`, change that date in all seven pages (including `404.html`) so visitors' browsers download the new file instead of using a saved copy.
+
 The site colors are CSS variables: `--color-ink`, `--color-paper`, `--color-paper-2`, `--color-stone`, `--color-steel`, `--color-muted`, `--color-hairline`.
 
 ## Deal form
