@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { DealForm } from "@/components/deal-form";
@@ -6,31 +7,52 @@ import { MarketExplorer } from "@/components/market-explorer";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { FOCUS, SITE, STEPS, TICKER } from "@/lib/site";
+import {
+  DEFAULT_CONTENT,
+  getSectionContent,
+  getSectionOrder,
+  type SectionContent,
+  type SectionId,
+} from "@/lib/page-sections";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  component: Home,
+  loader: async () => {
+    const [order, content] = await Promise.all([
+      getSectionOrder(),
+      getSectionContent(),
+    ]);
+    return { order, content };
+  },
+});
+
+const SECTION_COMPONENTS: Record<SectionId, (content?: SectionContent) => ReactNode> = {
+  hero: (content) => <Hero key="hero" content={content} />,
+  ticker: () => <Ticker key="ticker" />,
+  thesis: (content) => <Thesis key="thesis" content={content} />,
+  focus: () => <Focus key="focus" />,
+  markets: (content) => <Markets key="markets" content={content} />,
+  approach: () => <Approach key="approach" />,
+  about: (content) => <About key="about" content={content} />,
+  faq: () => <Faq key="faq" />,
+  contact: (content) => <Contact key="contact" content={content} />,
+};
 
 function Home() {
+  const { order, content } = Route.useLoaderData();
   return (
     <main id="main">
-      <Hero />
-      <Ticker />
-      <Thesis />
-      <Focus />
-      <Markets />
-      <Approach />
-      <About />
-      <Faq />
-      <Contact />
+      {order.map((id) => SECTION_COMPONENTS[id](content[id]))}
     </main>
   );
 }
 
-function Hero() {
+function Hero({ content = DEFAULT_CONTENT.hero! }: { content?: SectionContent }) {
   return (
     <section className="relative isolate min-h-svh overflow-hidden bg-ink text-paper">
       <img
-        src="/images/hero.jpg"
-        alt="Bright daytime skyline view of Miami with modern skyscrapers and waterfront"
+        src={`/images/${content.image}`}
+        alt={content.imageAlt}
         width={1792}
         height={1008}
         className="absolute inset-0 size-full object-cover outline outline-1 -outline-offset-1 outline-paper/10"
@@ -40,21 +62,19 @@ function Hero() {
 
       <div className="relative mx-auto flex min-h-svh max-w-6xl flex-col justify-end px-5 pb-10 pt-28 sm:px-8 sm:pb-14">
         <p className="reveal is-in text-xs font-medium tracking-[0.22em] uppercase text-stone">
-          Real estate investment · Southeast
+          {content.kicker}
         </p>
         <h1
           className="reveal is-in mt-5 max-w-4xl font-display text-[2.6rem] leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
           style={{ transitionDelay: "80ms" }}
         >
-          Building long-term value across high-growth markets.
+          {content.title}
         </h1>
         <p
           className="reveal is-in mt-6 max-w-xl text-base leading-relaxed text-stone sm:text-lg"
           style={{ transitionDelay: "160ms" }}
         >
-          HJ4 Capital is a real estate investment group founded by Henry and Jeremy.
-          We acquire and improve multifamily and income-producing properties across
-          Florida, Georgia, the Carolinas, Texas, and the Sun Belt.
+          {content.body}
         </p>
         <div
           className="reveal is-in mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
@@ -107,28 +127,19 @@ function Ticker() {
   );
 }
 
-function Thesis() {
+function Thesis({ content = DEFAULT_CONTENT.thesis! }: { content?: SectionContent }) {
   return (
     <section className="bg-paper py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted">01 — Thesis</p>
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted">{content.kicker}</p>
           <h2 className="mt-4 font-display text-4xl leading-[1.1] tracking-tight sm:text-5xl">
-            Growth is not a thesis. Underwriting is.
+            {content.title}
           </h2>
         </Reveal>
         <Reveal className="lg:col-span-7" delayMs={80}>
-          <p className="text-lg leading-relaxed text-foreground/90">
-            The Southeast continues to absorb households, jobs, and renters. That
-            is the backdrop — not the deal. HJ4 Capital was founded to look at
-            income-producing real estate the way operators do: rents, expenses,
-            capital needs, and a hold that can survive a cycle.
-          </p>
-          <p className="mt-5 text-base leading-relaxed text-muted">
-            We evaluate multifamily and select income properties with independent
-            analysis, conservative assumptions, and practical diligence. If the
-            file does not work on paper, it does not leave the desk.
-          </p>
+          <p className="text-lg leading-relaxed text-foreground/90">{content.body}</p>
+          <p className="mt-5 text-base leading-relaxed text-muted">{content.body2}</p>
           <Button asChild variant="ink" className="mt-8">
             <Link to="/approach">
               How we underwrite
@@ -141,8 +152,8 @@ function Thesis() {
       <Reveal className="mx-auto mt-16 max-w-6xl px-5 sm:px-8">
         <div className="overflow-hidden rounded-xl">
           <img
-            src="/images/courtyard.jpg"
-            alt="Golden-hour courtyard and pool at a garden-style apartment community"
+            src={`/images/${content.image}`}
+            alt={content.imageAlt}
             width={1728}
             height={1152}
             className="aspect-16/8 w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
@@ -184,16 +195,16 @@ function Focus() {
   );
 }
 
-function Markets() {
+function Markets({ content = DEFAULT_CONTENT.markets! }: { content?: SectionContent }) {
   return (
     <section className="bg-ink py-20 text-paper sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-steel">
-            03 — Where we look
+            {content.kicker}
           </p>
           <h2 className="mt-4 font-display text-4xl tracking-tight sm:text-5xl">
-            High-growth Southeast and Sun Belt markets.
+            {content.title}
           </h2>
         </Reveal>
         <Reveal className="mt-14" delayMs={80}>
@@ -202,8 +213,8 @@ function Markets() {
         <Reveal className="mt-14">
           <div className="overflow-hidden rounded-xl">
             <img
-              src="/images/community.jpg"
-              alt="Late-afternoon view across a Sun Belt apartment community"
+              src={`/images/${content.image}`}
+              alt={content.imageAlt}
               width={1792}
               height={1008}
               className="aspect-16/8 w-full object-cover outline outline-1 -outline-offset-1 outline-paper/10"
@@ -254,15 +265,15 @@ function Approach() {
   );
 }
 
-function About() {
+function About({ content = DEFAULT_CONTENT.about! }: { content?: SectionContent }) {
   return (
     <section className="border-t border-hairline bg-paper py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-12">
         <Reveal className="lg:col-span-6">
           <div className="overflow-hidden rounded-xl">
             <img
-              src="/images/lobby.jpg"
-              alt="Quiet lobby in stone, oak, and linen"
+              src={`/images/${content.image}`}
+              alt={content.imageAlt}
               width={1728}
               height={1152}
               className="aspect-4/3 w-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
@@ -271,21 +282,13 @@ function About() {
         </Reveal>
         <Reveal className="lg:col-span-6" delayMs={80}>
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted">
-            05 — The firm
+            {content.kicker}
           </p>
           <h2 className="mt-4 font-display text-4xl tracking-tight sm:text-5xl">
-            Founded by Henry and Jeremy.
+            {content.title}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted">
-            HJ4 Capital is a disciplined platform for income-producing real estate
-            — built by two principals who underwrite together, decide together, and
-            stay close to the asset after closing.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-muted">
-            As part of our continued growth, we participate in the Grant Cardone
-            Real Estate Club for education, market conversation, and a broader
-            investor network. The firm itself remains independent.
-          </p>
+          <p className="mt-5 text-base leading-relaxed text-muted">{content.body}</p>
+          <p className="mt-4 text-base leading-relaxed text-muted">{content.body2}</p>
           <Button asChild variant="ink" className="mt-8">
             <Link to="/about">
               About HJ4
@@ -316,22 +319,18 @@ function Faq() {
   );
 }
 
-function Contact() {
+function Contact({ content = DEFAULT_CONTENT.contact! }: { content?: SectionContent }) {
   return (
     <section className="bg-ink py-20 text-paper sm:py-28">
       <div className="mx-auto grid max-w-6xl gap-14 px-5 sm:px-8 lg:grid-cols-12">
         <Reveal className="lg:col-span-5">
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-steel">
-            07 — Contact
+            {content.kicker}
           </p>
           <h2 className="mt-4 font-display text-4xl tracking-tight sm:text-5xl">
-            Have a real estate opportunity?
+            {content.title}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-stone">
-            Brokers, owners, lenders, operators, and partners — send the file.
-            We are actively reviewing multifamily and income-producing properties
-            across our markets.
-          </p>
+          <p className="mt-5 text-base leading-relaxed text-stone">{content.body}</p>
           <a
             href={SITE.phoneHref}
             className="mt-8 inline-block font-display text-3xl tracking-tight transition-[opacity] duration-150 ease-out hover:opacity-70"

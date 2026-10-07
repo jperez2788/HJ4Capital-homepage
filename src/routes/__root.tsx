@@ -1,7 +1,7 @@
 import { createRootRoute, HeadContent, Link, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
-import { SiteFooter } from "@/components/site-footer";
+import Footer4Col from "@/components/ui/footer-column";
 import { SiteHeader } from "@/components/site-header";
 import { SITE } from "@/lib/site";
 import appCss from "../styles.css?url";
@@ -68,7 +68,7 @@ function RootLayout() {
           </a>
           <SiteHeader />
           <Outlet />
-          <SiteFooter />
+          <Footer4Col />
         </AuthProvider>
         <Scripts />
       </body>
