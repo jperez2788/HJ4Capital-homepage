@@ -2521,12 +2521,12 @@ nav[aria-label="Mobile"] a .nav-icon {
 }
 
 /* ---------- Logo ---------- */
-/* Header uses images/logo-gold-light.png (black background removed, for the dark header);
-   the footer uses images/logo-gold.png (on black) as a rounded badge. */
+/* Shared champagne logo has true transparency for dark and light surfaces. */
 .site-logo {
   display: block;
   height: 2.75rem;
   width: auto;
+  background: transparent;
 }
 
 @media (min-width: 640px) {
@@ -2537,7 +2537,6 @@ nav[aria-label="Mobile"] a .nav-icon {
 
 .site-logo-footer {
   height: 5.5rem;
-  border-radius: 0.5rem;
 }
 
 
