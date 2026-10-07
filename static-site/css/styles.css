@@ -2302,16 +2302,11 @@ html.has-shader [data-shader="dark"] > div {
   transition: transform 1000ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.team-panel img.team-photo-cutout {
-  object-fit: contain;
-  object-position: center bottom;
-}
-
 .team-panel.is-active img {
   transform: scale(1);
 }
 
-/* Keep initials from showing through transparent portraits. */
+/* Show fallback initials only when a portrait is absent. */
 .team-panel:has(> img) .team-panel-initials {
   display: none;
 }
