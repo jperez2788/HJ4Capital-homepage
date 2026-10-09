@@ -59,11 +59,11 @@ The Team section is an expanding photo gallery. Hovering, tapping or tabbing to 
 | Person | File |
 | --- | --- |
 | Henrry Martinez | `images/team/henrry-martinez.jpg` |
-| Jeremy Perez | `images/team/jeremy-perez.jpg` |
+| Jeremy Perez | `images/team/jeremy-perez-office.png` |
 | Matthew Teifke | `images/team/matthew-teifke.webp` |
 | Stephan Shenk | `images/team/stephan-shenk.jpg` |
 
-Refresh the page and the photo replaces the initials. Stephan's photo is currently missing, so his image tag is commented out in `about.html`. After adding his photo, uncomment that tag. The filename must match exactly: lowercase, with dashes, no spaces. To use a different file type (`.png`, `.webp`…), change the `src` in that person's card in `about.html` to match. For the other existing image tags, no HTML changes are needed. Head-and-shoulders photos work best. To move a photo's crop, change `object-position` on its `<img>` (for example `center 25%`; lower numbers show more of the top). Names and roles are in the Team section of `about.html`, and the styles are under "Team (About page)" in `css/styles.css`.
+Refresh the page and the photo replaces the initials. Jeremy's portrait uses a softly blurred office background. Matthew's and Stephan's photos are currently missing, so their image tags are commented out in `about.html`. After adding a replacement photo, uncomment that tag. The filename must match exactly: lowercase, with dashes, no spaces. To use a different file type (`.png`, `.webp`…), change the `src` in that person's card in `about.html` to match. For the other existing image tags, no HTML changes are needed. Head-and-shoulders photos work best. To move a photo's crop, change `object-position` on its `<img>` (for example `center 25%`; lower numbers show more of the top). Names and roles are in the Team section of `about.html`, and the styles are under "Team (About page)" in `css/styles.css`.
 
 ## Editing styles
 
@@ -76,6 +76,8 @@ If you use a class that isn't on the site yet, nothing will happen, since there 
 ```css
 .my-callout { padding: 2rem; background: var(--color-paper-2); }
 ```
+
+Each page links the stylesheet as `css/styles.css?v=2026-10-07`. After changing `styles.css`, change that date in all seven pages (including `404.html`) so visitors' browsers download the new file instead of using a saved copy.
 
 The site colors are CSS variables: `--color-ink`, `--color-paper`, `--color-paper-2`, `--color-stone`, `--color-steel`, `--color-muted`, `--color-hairline`.
 

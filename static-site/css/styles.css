@@ -2306,6 +2306,11 @@ html.has-shader [data-shader="dark"] > div {
   transform: scale(1);
 }
 
+/* Show fallback initials only when a portrait is absent. */
+.team-panel:has(> img) .team-panel-initials {
+  display: none;
+}
+
 /* Shown when there's no photo yet */
 .team-panel-initials {
   position: absolute;
@@ -2444,6 +2449,17 @@ html.has-shader [data-shader="dark"] > div {
   }
 }
 
+/* Slightly taller header gives the logo and menu more breathing room. */
+[data-site-header] > div:first-child {
+  height: 4.5rem;
+}
+
+@media (min-width: 640px) {
+  [data-site-header] > div:first-child {
+    height: 5rem;
+  }
+}
+
 /* ---------- Main menu: icon tabs with an underline on the current page ---------- */
 .nav-tabs {
   display: none;
@@ -2465,8 +2481,8 @@ html.has-shader [data-shader="dark"] > div {
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  padding-inline: 0.85rem;
-  font-size: 0.8125rem;
+  padding-inline: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.025em;
   color: rgb(243 240 232 / 0.7);
@@ -2474,6 +2490,8 @@ html.has-shader [data-shader="dark"] > div {
 }
 
 .nav-tab .nav-icon {
+  width: 18px;
+  height: 18px;
   opacity: 0.6;
   transition: opacity 150ms ease-out;
 }
@@ -2520,36 +2538,22 @@ nav[aria-label="Mobile"] a .nav-icon {
   opacity: 0.6;
 }
 
-/* ---------- Official HJ4 Capital logo ---------- */
-.brand-logo {
-  display: inline-flex;
-  vertical-align: middle;
-}
-
-.brand-logo img {
+/* ---------- Logo ---------- */
+/* Shared champagne logo has true transparency for dark and light surfaces. */
+.site-logo {
   display: block;
-  width: 112px;
-  height: auto;
-  object-fit: contain;
-}
-
-.site-header-inner {
-  height: 96px;
-}
-
-footer .brand-logo img {
-  width: 256px;
-  max-width: 100%;
+  height: 3.125rem;
+  width: auto;
+  background: transparent;
 }
 
 @media (min-width: 640px) {
-  .brand-logo img {
-    width: 128px;
+  .site-logo {
+    height: 3.75rem;
   }
 
-  .site-header-inner {
-    height: 112px;
-  }
+.site-logo-footer {
+  height: 5.5rem;
 }
 
 
