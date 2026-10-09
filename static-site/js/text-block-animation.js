@@ -33,10 +33,13 @@
         var blocks = self.masks.map(function (mask) {
           mask.style.position = "relative";
           mask.style.width = "fit-content"; // bar matches the line's text width
+          // This reveal animates opacity, not sliding text. Keep serif descenders
+          // and side bearings visible outside SplitText's generated line box.
+          mask.style.overflow = "visible";
           var block = document.createElement("span");
           block.setAttribute("aria-hidden", "true");
           block.style.cssText =
-            "position:absolute;inset:0;z-index:2;background:" + color +
+            "position:absolute;inset:-0.08em -0.04em -0.16em;z-index:2;pointer-events:none;background:" + color +
             ";transform:scaleX(0);transform-origin:left center;";
           mask.appendChild(block);
           return block;

@@ -9,7 +9,7 @@ Plain HTML, CSS and JavaScript. No build step: open `index.html` in a browser, o
 | `index.html`, `about.html`, `approach.html`, `markets.html`, `faq.html`, `contact.html` | One file per page. The header and footer are copied into each page, so edit them in all six. |
 | `css/styles.css` | All styles. Custom site styles (colors, fonts, `.reveal`, `.ticker-track`, `.grain`) are near the end. |
 | `js/main.js` | Mobile menu, header scroll effect, FAQ accordion, markets explorer, scroll-in animations, deal form. Market metros are listed at the top of this file. |
-| `images/`, `fonts/` | Photos, logo and the Inter / Libre Baskerville font files. |
+| `images/`, `fonts/` | Photos, logo and the Montserrat / Cormorant Garamond font files. |
 
 ## Official branding
 
